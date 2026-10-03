@@ -1,5 +1,27 @@
-/* Global CSS Reset & Base Styles */
-* {
+/* =========================================================
+   GLOBAL SCRAPBOOK THEME VARIABLES & RESET
+   ========================================================= */
+:root {
+  /* Core Colors */
+  --bg-blue: #1557A8;
+  --paper-cream: #FFF8E8;
+  --paper-dark: #F5EBD7;
+  --text-dark: #17202A;
+  
+  /* Accents */
+  --accent-blue-primary: #1565C0;
+  --accent-blue-bright: #1689E8;
+  --accent-yellow: #F4D35E;
+  --accent-pink: #E86A7A;
+  --accent-green: #7FB77E;
+
+  /* Typography */
+  --font-body: 'Inter', sans-serif;
+  --font-display: 'DM Mono', monospace;
+  --font-hand: 'Caveat', cursive;
+}
+
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -10,9 +32,96 @@ html {
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family: var(--font-body);
   line-height: 1.6;
-  color: #f1f5f9;
-  background-color: #070913; /* Deep navy / near-black background */
+  color: var(--text-dark);
+  background-color: var(--bg-blue);
+  
+  /* Blue notebook grid / textile pattern */
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-attachment: fixed;
   overflow-x: hidden;
+}
+
+img, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+section {
+  scroll-margin-top: 100px;
+}
+
+/* =========================================================
+   REUSABLE SCRAPBOOK UTILITIES
+   ========================================================= */
+.tape {
+  position: absolute;
+  width: 80px;
+  height: 25px;
+  background: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: 10;
+}
+
+.pin {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  box-shadow: -2px 3px 4px rgba(0,0,0,0.3), inset -2px -2px 4px rgba(0,0,0,0.2);
+  z-index: 10;
+}
+
+.pin-red { background: var(--accent-pink); }
+.pin-blue { background: var(--accent-blue-bright); }
+.pin-yellow { background: var(--accent-yellow); }
+
+.handwritten {
+  font-family: var(--font-hand);
+  color: var(--accent-blue-primary);
+}
+
+.typewriter-text {
+  font-family: var(--font-display);
+}
+
+.highlight-yellow {
+  background-color: var(--accent-yellow);
+  padding: 0 4px;
+  border-radius: 2px;
+}
+
+/* =========================================================
+   SCROLL REVEAL ANIMATION CLASSES
+   ========================================================= */
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  will-change: opacity, transform;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal-hidden {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

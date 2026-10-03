@@ -1,101 +1,73 @@
+import { useScrollReveal } from '../hooks/useScrollReveal';
 import './Skills.css';
 
-// Reusable data array organizing the 4 skill categories
 const skillCategories = [
   {
     id: 'languages',
-    title: 'Languages',
-    tag: 'Core Logic',
-    accentColor: 'blue',
+    title: 'LANGUAGES',
+    rotation: '-1.5deg',
+    tapeColor: 'rgba(255, 255, 255, 0.5)',
+    pinColor: 'pin-blue',
     skills: ['Python', 'Java', 'C++', 'JavaScript', 'SQL'],
   },
   {
     id: 'ai-ml',
-    title: 'AI & Machine Learning',
-    tag: 'Intelligence',
-    accentColor: 'purple',
-    skills: [
-      'Machine Learning',
-      'Artificial Intelligence',
-      'Generative AI',
-      'LLMs',
-      'NLP',
-      'Computer Vision',
-    ],
+    title: 'AI & ML',
+    rotation: '1deg',
+    tapeColor: 'rgba(232, 106, 122, 0.3)',
+    pinColor: 'pin-red',
+    skills: ['Machine Learning', 'Artificial Intelligence', 'Generative AI', 'LLMs', 'NLP', 'Computer Vision'],
   },
   {
     id: 'development',
-    title: 'Development',
-    tag: 'Engineering',
-    accentColor: 'cyan',
-    skills: [
-      'React',
-      'HTML',
-      'CSS',
-      'Node.js',
-      'FastAPI',
-      'REST APIs',
-      'Git & GitHub',
-    ],
+    title: 'DEVELOPMENT',
+    rotation: '-0.5deg',
+    tapeColor: 'rgba(127, 183, 126, 0.3)',
+    pinColor: 'pin-yellow',
+    skills: ['React', 'HTML', 'CSS', 'Node.js', 'FastAPI', 'REST APIs', 'Git & GitHub'],
   },
   {
-    id: 'tools-workflow',
-    title: 'Tools & Workflow',
-    tag: 'Productivity',
-    accentColor: 'violet',
-    skills: [
-      'Jupyter',
-      'Google Colab',
-      'Streamlit',
-      'MongoDB',
-      'PostgreSQL',
-      'n8n',
-      'LangChain',
-      'LangGraph',
-    ],
+    id: 'tools',
+    title: 'TOOLS & WORKFLOW',
+    rotation: '1.5deg',
+    tapeColor: 'rgba(244, 211, 94, 0.4)',
+    pinColor: 'pin-blue',
+    skills: ['Jupyter', 'Google Colab', 'Streamlit', 'MongoDB', 'PostgreSQL', 'n8n', 'LangChain', 'LangGraph'],
   },
 ];
 
 function Skills() {
+  const revealRef = useScrollReveal();
+
   return (
-    <section className="skills" id="skills">
-      {/* Background ambient lighting */}
-      <div className="skills-ambient-glow" aria-hidden="true" />
-
+    <section ref={revealRef} className="skills reveal-hidden" id="skills">
       <div className="skills-container">
-        {/* Section Header */}
+        
         <div className="skills-header">
-          <div className="section-badge">
-            <span className="badge-dot-cyan" />
-            <span>SKILLS & TECHNOLOGIES</span>
-          </div>
-
-          <h2 className="skills-heading">
-            Tools I use to turn ideas into{' '}
-            <span className="skills-heading-accent">working things.</span>
+          <div className="handwritten skills-label">Skills & Technologies</div>
+          <h2 className="skills-heading typewriter-text">
+            Tools I use to turn ideas into <span className="highlight-yellow">working things.</span>
           </h2>
-
           <p className="skills-description">
-            I enjoy learning by building — from machine learning models and AI
-            applications to interactive web experiences.
+            I enjoy learning by building — from machine learning models and AI applications to interactive web experiences.
           </p>
         </div>
 
-        {/* 4 Category Cards in Responsive Grid */}
         <div className="skills-grid">
           {skillCategories.map((category) => (
-            <div
-              key={category.id}
-              className={`skill-card card-${category.accentColor}`}
+            <div 
+              key={category.id} 
+              className="skill-paper-card"
+              style={{ transform: `rotate(${category.rotation})` }}
             >
-              <div className="skill-card-top">
-                <span className="category-tag">{category.tag}</span>
-                <h3 className="category-title">{category.title}</h3>
-              </div>
-
+              <div className="tape" style={{ background: category.tapeColor, top: '-10px', left: '50%', transform: 'translateX(-50%) rotate(2deg)' }}></div>
+              <div className={`pin ${category.pinColor}`} style={{ top: '8px', right: '12px' }}></div>
+              
+              <h3 className="category-title">{category.title}</h3>
+              
               <div className="skill-tags-wrapper">
                 {category.skills.map((skill) => (
-                  <span key={skill} className="skill-chip">
+                  <span key={skill} className="skill-sticker handwritten">
                     {skill}
                   </span>
                 ))}

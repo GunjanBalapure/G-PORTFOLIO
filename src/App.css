@@ -4,17 +4,3 @@
   min-height: 100vh;
   position: relative;
 }
-
-/* Placeholder styling for other sections (until we build them) */
-section:not(.hero):not(.about):not(.skills):not(.projects):not(.experience):not(.creative) {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 48px 24px;
-  border-bottom: 1px dashed #1e293b;
-  color: #64748b;
-}
-
-section:not(.hero):not(.about):not(.skills):not(.projects):not(.experience):not(.creative) h2 {
-  font-size: 1.5rem;
-  color: #94a3b8;
-}

@@ -1,420 +1,112 @@
-/* =========================================================
-   CREATIVE (BEYOND CODE) SECTION STYLES
-   ========================================================= */
-
 .creative {
+  padding: 80px 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.creative-scrapbook-sheet {
   position: relative;
-  padding: 110px 24px 96px;
-  background-color: #070913; /* Deep navy base */
-  color: #ffffff;
-  overflow: hidden;
+  width: 100%;
+  max-width: 1100px;
+  background: var(--paper-dark);
+  padding: 60px;
+  box-shadow: 2px 6px 20px rgba(0,0,0,0.15);
+  border: 1px solid rgba(0,0,0,0.05);
+  transform: rotate(-0.5deg);
 }
 
-/* ---------------------------------------------------------
-   1. Artistic Ambient Atmosphere
-   Softer violet, indigo, and warm rose/magenta glows
-   --------------------------------------------------------- */
-.creative-ambient-glow-1 {
-  position: absolute;
-  top: 15%;
-  left: -5%;
-  width: 600px;
-  height: 600px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(244, 114, 182, 0.1), rgba(168, 85, 247, 0.06) 60%, transparent 80%);
-  filter: blur(120px);
-  pointer-events: none;
+.creative-pin {
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-.creative-ambient-glow-2 {
-  position: absolute;
-  bottom: 10%;
-  right: -5%;
-  width: 650px;
-  height: 650px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(129, 140, 248, 0.12), rgba(251, 113, 133, 0.05) 60%, transparent 80%);
-  filter: blur(120px);
-  pointer-events: none;
-}
-
-/* Constrained Container */
-.creative-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 2;
-}
-
-/* ---------------------------------------------------------
-   2. Section Header
-   --------------------------------------------------------- */
 .creative-header {
   text-align: center;
-  max-width: 720px;
-  margin: 0 auto 64px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin-bottom: 50px;
 }
 
-/* Warm Rose Section Badge */
-.creative-header .section-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  padding: 6px 16px;
-  border-radius: 9999px;
-  background: rgba(30, 41, 59, 0.6);
-  border: 1px solid rgba(244, 114, 182, 0.35);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  color: #fce7f3;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-  backdrop-filter: blur(8px);
-}
-
-.badge-dot-rose {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: #f472b6;
-  box-shadow: 0 0 8px #f472b6;
+.creative-label {
+  font-size: 2.2rem;
+  color: var(--accent-pink);
+  transform: rotate(-2deg);
+  display: inline-block;
+  margin-bottom: 5px;
 }
 
 .creative-heading {
-  font-size: clamp(2rem, 3.2vw, 2.75rem);
-  font-weight: 800;
-  line-height: 1.25;
-  letter-spacing: -0.025em;
-  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  color: var(--text-dark);
   margin-bottom: 20px;
 }
 
-.creative-heading-line {
-  display: block;
-}
-
-.creative-heading-accent {
-  background: linear-gradient(135deg, #c084fc 0%, #f472b6 50%, #fb7185 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+.creative-heading .highlight-blue {
+  background: var(--accent-blue-bright);
+  color: white;
+  padding: 0 8px;
 }
 
 .creative-description {
-  font-size: 1.08rem;
-  line-height: 1.8;
-  color: #94a3b8;
+  font-size: 1.1rem;
+  color: #333;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
-/* ---------------------------------------------------------
-   3. Responsive Grid for 3 Cards
-   --------------------------------------------------------- */
-.creative-grid {
+.creative-cards-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  gap: 30px;
 }
 
-/* ---------------------------------------------------------
-   4. Creative Card Styling
-   --------------------------------------------------------- */
-.creative-card {
+.creative-note {
+  background: var(--paper-cream);
+  padding: 30px 20px;
   position: relative;
-  background: rgba(15, 23, 42, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 22px;
-  padding: 34px 28px 30px;
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.35s ease,
-              box-shadow 0.35s ease;
-  overflow: hidden;
+  box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.05);
 }
 
-/* Category Label */
-.creative-category-tag {
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #cbd5e1;
-  margin-bottom: 20px;
-  display: block;
+.note-poetry { transform: rotate(-1.5deg); }
+.note-music { transform: rotate(1deg); }
+.note-visual { transform: rotate(-0.5deg); }
+
+.creative-note:hover {
+  transform: translateY(-3px) rotate(0deg);
+  box-shadow: 3px 5px 15px rgba(0,0,0,0.15);
+  z-index: 2;
 }
 
-/* ---------------------------------------------------------
-   5. Decorative CSS Visual Elements
-   --------------------------------------------------------- */
-.creative-art-container {
-  height: 96px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 24px;
-  position: relative;
-}
-
-/* Visual 1: Poetry Floating Verse Lines */
-.visual-poetry {
-  width: 100%;
-  max-width: 220px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.poetry-line {
-  height: 4px;
-  border-radius: 4px;
-  background: linear-gradient(90deg, #f472b6 0%, #c084fc 70%, transparent 100%);
-  opacity: 0.75;
-  transition: all 0.3s ease;
-}
-
-.line-1 { width: 75%; animation: verseDrift 4s ease-in-out infinite; }
-.line-2 { width: 92%; animation: verseDrift 4.5s ease-in-out infinite 0.5s; }
-.line-3 { width: 60%; animation: verseDrift 3.8s ease-in-out infinite 1s; }
-.line-4 { width: 82%; animation: verseDrift 4.2s ease-in-out infinite 1.5s; }
-
-/* Visual 2: Music Soundwave Bars */
-.visual-music {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 7px;
-  height: 60px;
-}
-
-.music-bar {
-  width: 4px;
+.creative-icon {
+  width: 40px;
   height: 40px;
-  border-radius: 4px;
-  background: linear-gradient(to top, #818cf8 0%, #c084fc 50%, #f472b6 100%);
-  animation: soundBarBounce 1.4s ease-in-out infinite alternate;
-  transform-origin: bottom;
-  opacity: 0.85;
-}
-
-.bar-1 { height: 18px; animation-delay: 0.1s; }
-.bar-2 { height: 36px; animation-delay: 0.3s; }
-.bar-3 { height: 48px; animation-delay: 0.15s; }
-.bar-4 { height: 24px; animation-delay: 0.4s; }
-.bar-5 { height: 44px; animation-delay: 0.25s; }
-.bar-6 { height: 32px; animation-delay: 0.5s; }
-.bar-7 { height: 20px; animation-delay: 0.2s; }
-
-/* Visual 3: Visual Storytelling Overlapping Frames */
-.visual-storytelling {
-  position: relative;
-  width: 120px;
-  height: 72px;
-}
-
-.story-frame {
-  position: absolute;
-  border-radius: 8px;
-  transition: transform 0.35s ease, border-color 0.35s ease;
-}
-
-.story-frame-back {
-  inset: 0;
-  border: 1.5px dashed rgba(168, 85, 247, 0.4);
-  background: rgba(168, 85, 247, 0.06);
-  transform: rotate(-5deg) scale(0.95);
-}
-
-.story-frame-front {
-  inset: 0;
-  border: 1.5px solid rgba(56, 189, 248, 0.6);
-  background: rgba(56, 189, 248, 0.08);
-  transform: rotate(3deg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Corner focus ticks */
-.viewfinder-corner {
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  border: 1.5px solid #38bdf8;
-}
-
-.viewfinder-corner.tl { top: 3px; left: 3px; border-right: none; border-bottom: none; }
-.viewfinder-corner.tr { top: 3px; right: 3px; border-left: none; border-bottom: none; }
-.viewfinder-corner.bl { bottom: 3px; left: 3px; border-right: none; border-top: none; }
-.viewfinder-corner.br { bottom: 3px; right: 3px; border-left: none; border-top: none; }
-
-/* ---------------------------------------------------------
-   6. Card Typography & Tags
-   --------------------------------------------------------- */
-.creative-card-content {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
+  margin-bottom: 15px;
+  color: var(--text-dark);
 }
 
 .creative-title {
-  font-size: 1.45rem;
-  font-weight: 700;
-  color: #fdf2f8;
-  margin-bottom: 12px;
-  letter-spacing: -0.015em;
+  font-size: 1.3rem;
+  color: var(--text-dark);
+  margin-bottom: 15px;
 }
 
-.creative-card-desc {
-  font-size: 0.96rem;
-  line-height: 1.7;
-  color: #94a3b8;
-  margin-bottom: 26px;
-  flex-grow: 1;
+.creative-text {
+  font-size: 0.95rem;
+  color: #444;
 }
 
-/* Creative Tags */
-.creative-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding-top: 18px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.creative-tag {
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: #cbd5e1;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 4px 10px;
-  border-radius: 6px;
-  transition: all 0.2s ease;
-}
-
-/* ---------------------------------------------------------
-   7. Card Hover Interactions
-   --------------------------------------------------------- */
-.creative-card:hover {
-  transform: translateY(-8px);
-}
-
-/* Poetry Hover (Warm Rose Glow) */
-.card-rose:hover {
-  border-color: rgba(244, 114, 182, 0.45);
-  box-shadow: 0 16px 36px rgba(244, 114, 182, 0.14),
-              0 0 1px 1px rgba(244, 114, 182, 0.25);
-}
-
-.card-rose:hover .poetry-line {
-  opacity: 1;
-  box-shadow: 0 0 10px rgba(244, 114, 182, 0.6);
-}
-
-/* Music Hover (Violet Glow) */
-.card-purple:hover {
-  border-color: rgba(192, 132, 252, 0.45);
-  box-shadow: 0 16px 36px rgba(192, 132, 252, 0.14),
-              0 0 1px 1px rgba(192, 132, 252, 0.25);
-}
-
-.card-purple:hover .music-bar {
-  opacity: 1;
-  box-shadow: 0 0 12px rgba(192, 132, 252, 0.7);
-  animation-duration: 0.9s; /* Pulses slightly faster on hover */
-}
-
-/* Visual Storytelling Hover (Cyan/Indigo Glow) */
-.card-cyan:hover {
-  border-color: rgba(56, 189, 248, 0.45);
-  box-shadow: 0 16px 36px rgba(56, 189, 248, 0.14),
-              0 0 1px 1px rgba(56, 189, 248, 0.25);
-}
-
-.card-cyan:hover .story-frame-back {
-  transform: rotate(-10deg) scale(0.92);
-  border-color: rgba(168, 85, 247, 0.7);
-}
-
-.card-cyan:hover .story-frame-front {
-  transform: rotate(6deg) scale(1.05);
-  border-color: #38bdf8;
-  box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
-}
-
-.creative-card:hover .creative-tag {
-  border-color: rgba(255, 255, 255, 0.18);
-  color: #ffffff;
-}
-
-/* ---------------------------------------------------------
-   8. Keyframe Animations
-   --------------------------------------------------------- */
-@keyframes verseDrift {
-  0%, 100% {
-    transform: translateX(0);
-    opacity: 0.7;
-  }
-  50% {
-    transform: translateX(6px);
-    opacity: 0.95;
-  }
-}
-
-@keyframes soundBarBounce {
-  0% {
-    transform: scaleY(0.4);
-  }
-  100% {
-    transform: scaleY(1.15);
-  }
-}
-
-/* ---------------------------------------------------------
-   9. Responsive Breakpoints
-   --------------------------------------------------------- */
-
-/* Tablet (<= 1024px): 2 columns, last card centered/full */
 @media (max-width: 1024px) {
-  .creative {
-    padding: 80px 20px 70px;
-  }
-
-  .creative-grid {
+  .creative-cards-container {
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
-
-  /* Make the 3rd card span full width for balanced layout */
-  .creative-card:nth-child(3) {
-    grid-column: span 2;
   }
 }
 
-/* Mobile (<= 640px): 1 column */
 @media (max-width: 640px) {
-  .creative-grid {
+  .creative-scrapbook-sheet {
+    padding: 40px 20px;
+  }
+  .creative-cards-container {
     grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .creative-card:nth-child(3) {
-    grid-column: span 1;
-  }
-
-  .creative-header {
-    margin-bottom: 44px;
-  }
-
-  .creative-card {
-    padding: 26px 22px 22px;
   }
 }

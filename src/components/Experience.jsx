@@ -1,144 +1,68 @@
+import { useScrollReveal } from '../hooks/useScrollReveal';
 import './Experience.css';
 
-// Reusable experience timeline data
 const experienceData = [
   {
-    id: 'hp-ci-indiaai',
-    title: 'Applied Machine Learning & AI',
-    organization: 'HP – CII – IndiaAI',
-    period: 'June – July 2026',
-    description:
-      'Completed a foundational program focused on Applied Machine Learning and Artificial Intelligence, strengthening my understanding of practical AI and ML concepts.',
-    tags: ['Machine Learning', 'Artificial Intelligence', 'Python'],
-  },
-  {
-    id: 'lenovo-leap',
-    title: 'NextGen Scholar Program',
-    organization: 'Lenovo LEAP',
-    period: '2026',
-    description:
-      'Participated in the Lenovo LEAP NextGen Scholar Program, gaining exposure to professional development, technology, and career-oriented learning.',
-    tags: ['Professional Development', 'Technology', 'Career Skills'],
-  },
-  {
-    id: 'cisco-academy',
-    title: 'Networking Academy',
-    organization: 'Cisco Networking Academy',
-    period: '2026',
-    description:
-      'Completed multiple Cisco Networking Academy courses covering networking and foundational technology concepts.',
-    tags: ['Networking', 'Cisco', 'Technology'],
-  },
-];
-
-// Reusable certifications data
-const certificationsData = [
-  {
-    id: 'cert-hp',
-    organization: 'HP – CII – IndiaAI',
+    id: 1,
     title: 'Applied Machine Learning and AI',
-    year: '2026',
-    status: 'COMPLETED',
+    organization: 'HP – CII – IndiaAI',
+    period: '2026',
+    description: 'Completed a foundational program focused on Applied Machine Learning and Artificial Intelligence, strengthening my understanding of practical AI and ML concepts.',
   },
   {
-    id: 'cert-cisco',
-    organization: 'Cisco Networking Academy',
-    title: 'Networking courses',
-    year: '2026',
-    status: 'CERTIFIED',
-  },
-  {
-    id: 'cert-lenovo',
-    organization: 'Lenovo LEAP',
+    id: 2,
     title: 'NextGen Scholar Program',
-    year: '2026',
-    status: 'COMPLETED',
+    organization: 'Lenovo LEAP',
+    period: '2026',
+    description: 'Participated in the Lenovo LEAP NextGen Scholar Program, gaining exposure to professional development and technical skills.',
+  },
+  {
+    id: 3,
+    title: 'Networking Courses',
+    organization: 'Cisco Networking Academy',
+    period: '2026',
+    description: 'Completed comprehensive networking courses to build a strong foundation in computer networks and infrastructure.',
   },
 ];
 
 function Experience() {
+  const revealRef = useScrollReveal();
+
   return (
-    <section className="experience" id="experience">
-      {/* Background ambient glow decoration */}
-      <div className="experience-ambient-glow" aria-hidden="true" />
-
-      <div className="experience-container">
-        {/* Section Header */}
-        <div className="experience-header">
-          <div className="section-badge">
-            <span className="badge-dot-purple" />
-            <span>EXPERIENCE & LEARNING</span>
-          </div>
-
-          <h2 className="experience-heading">
-            Learning by <span className="experience-heading-accent">doing.</span>
+    <section ref={revealRef} className="experience reveal-hidden" id="experience">
+      <div className="exp-paper-sheet">
+        <div className="tape exp-tape-1"></div>
+        <div className="tape exp-tape-2"></div>
+        
+        <div className="exp-header">
+          <div className="handwritten exp-label">Experience & Learning</div>
+          <h2 className="exp-heading typewriter-text">
+            Learning by doing.
           </h2>
-
-          <p className="experience-description">
-            My journey so far has been a mix of internships, technical
-            programs, certifications, projects, and continuous experimentation.
+          <p className="exp-description">
+            My journey so far has been a mix of technical programs, certifications, projects, and continuous experimentation.
           </p>
         </div>
 
-        {/* Vertical Timeline */}
-        <div className="timeline-wrapper">
-          {/* Glowing vertical connector line */}
-          <div className="timeline-line" aria-hidden="true" />
-
-          {experienceData.map((item) => (
+        <div className="exp-timeline">
+          {/* Hand-drawn style vertical line */}
+          <div className="timeline-line"></div>
+          
+          {experienceData.map((item, index) => (
             <div key={item.id} className="timeline-item">
-              {/* Glowing dot on the timeline */}
-              <div className="timeline-dot" aria-hidden="true" />
-
-              {/* Experience Card */}
-              <div className="timeline-card">
-                <div className="timeline-card-header">
-                  <span className="timeline-org">{item.organization}</span>
-                  <span className="timeline-period">{item.period}</span>
-                </div>
-
-                <h3 className="timeline-title">{item.title}</h3>
-                <p className="timeline-text">{item.description}</p>
-
-                <div className="timeline-tags">
-                  {item.tags.map((tag) => (
-                    <span key={tag} className="timeline-tag">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+              <div className="timeline-dot"></div>
+              
+              <div className="timeline-date handwritten">
+                {item.period}
+              </div>
+              
+              <div className="timeline-content">
+                <h3 className="timeline-title typewriter-text">{item.title}</h3>
+                <h4 className="timeline-org handwritten">{item.organization}</h4>
+                <p className="timeline-desc">{item.description}</p>
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Subsection: Certifications & Learning */}
-        <div className="certifications-section">
-          <h3 className="certifications-title">Certifications & Learning</h3>
-
-          <div className="certifications-grid">
-            {certificationsData.map((cert) => (
-              <div key={cert.id} className="cert-card">
-                <div className="cert-card-top">
-                  <span
-                    className={`cert-status-badge ${
-                      cert.status === 'CERTIFIED'
-                        ? 'status-certified'
-                        : 'status-completed'
-                    }`}
-                  >
-                    {cert.status}
-                  </span>
-                  <span className="cert-year">{cert.year}</span>
-                </div>
-
-                <div className="cert-card-body">
-                  <span className="cert-org">{cert.organization}</span>
-                  <h4 className="cert-name">{cert.title}</h4>
-                </div>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>
