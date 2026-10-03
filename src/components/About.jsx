@@ -10,7 +10,7 @@ function About() {
         {/* ABOUT MINION: Sitting on left edge */}
         <div className="minion-wrapper minion-about-wrap minion-hide-tablet">
           <img 
-            src="/assets/minions/minion-about.png" 
+            src="/assets/minions/minion-about.png?v=2" 
             alt="Minion character" 
             className="minion minion-about minion-float"
             onError={(e) => {

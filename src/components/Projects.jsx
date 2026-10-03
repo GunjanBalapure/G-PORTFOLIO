@@ -67,7 +67,7 @@ function Projects() {
         
         {/* PROJECTS MINION 1: Peeking behind top left of the board */}
         <div className="minion-wrapper minion-proj-1-wrap minion-hide-tablet">
-          <img src="/assets/minions/minion-projects-1.png" alt="Minion character" className="minion minion-projects-1 minion-float"
+          <img src="/assets/minions/minion-projects-1.png?v=2" alt="Minion character" className="minion minion-projects-1 minion-float"
             onError={(e) => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
           <div className="minion-float minion-placeholder" style={{ display: 'none', width: '120px', height: '140px' }}>
             MINION IMAGE &rarr; ADD PNG
@@ -76,7 +76,7 @@ function Projects() {
 
         {/* PROJECTS MINION 2: Sitting bottom right of board */}
         <div className="minion-wrapper minion-proj-2-wrap minion-keep-mobile">
-          <img src="/assets/minions/minion-projects-2.png" alt="Minion character" className="minion minion-projects-2 minion-float"
+          <img src="/assets/minions/minion-projects-2.png?v=2" alt="Minion character" className="minion minion-projects-2 minion-float"
             onError={(e) => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
           <div className="minion-float minion-placeholder" style={{ display: 'none', width: '120px', height: '140px' }}>
             MINION IMAGE &rarr; ADD PNG

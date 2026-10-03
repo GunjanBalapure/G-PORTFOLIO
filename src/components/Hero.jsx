@@ -57,7 +57,7 @@ function Hero() {
         {/* HERO MINION: Peeking from behind top right of paper */}
         <div className="minion-wrapper minion-hero-wrap minion-keep-mobile">
           <img 
-            src="/assets/minions/minion-hero.png" 
+            src="/assets/minions/minion-hero.png?v=2" 
             alt="Minion character" 
             className="minion minion-hero minion-float"
             onError={(e) => {

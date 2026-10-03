@@ -11,7 +11,7 @@ function Creative() {
         {/* CREATIVE MINION: Peeking behind the creative sheet / left side */}
         <div className="minion-wrapper minion-creative-wrap minion-hide-tablet">
           <img 
-            src="/assets/minions/minion-creative.png" 
+            src="/assets/minions/minion-creative.png?v=2" 
             alt="Minion character" 
             className="minion minion-creative minion-float"
             onError={(e) => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }}

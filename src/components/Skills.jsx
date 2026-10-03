@@ -46,7 +46,7 @@ function Skills() {
         {/* SKILLS MINION: Looking at cards from right */}
         <div className="minion-wrapper minion-skills-wrap minion-hide-tablet">
           <img 
-            src="/assets/minions/minion-skills.png" 
+            src="/assets/minions/minion-skills.png?v=2" 
             alt="Minion character" 
             className="minion minion-skills minion-float"
             onError={(e) => {

@@ -26,7 +26,7 @@ function Contact() {
         {/* CONTACT MINION: Saying goodbye near left header */}
         <div className="minion-wrapper minion-contact-wrap minion-keep-mobile">
           <img 
-            src="/assets/minions/minion-contact.png" 
+            src="/assets/minions/minion-contact.png?v=2" 
             alt="Minion character" 
             className="minion minion-contact minion-float"
             onError={(e) => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }}
