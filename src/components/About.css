@@ -13,7 +13,34 @@
   padding: 60px;
   box-shadow: 2px 5px 20px rgba(0,0,0,0.1);
   border: 1px solid rgba(0,0,0,0.05);
-  transform: rotate(-0.5deg);
+  
+  /* Initial hidden state */
+  opacity: 0;
+  transform: translateY(60px) rotate(2deg);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+/* Scroll reveal state */
+.about.is-visible .about-scrapbook-sheet {
+  opacity: 1;
+  transform: translateY(0) rotate(-0.5deg);
+}
+
+/* ABOUT MINION */
+.minion-about-wrap {
+  bottom: 20px;
+  left: -40px;
+  z-index: 3;
+  width: 100px;
+  opacity: 0;
+  transform: translateX(-60px);
+  transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s;
+}
+
+.about.is-visible .minion-about-wrap {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .about-pin-1 { top: 15px; left: 15px; }

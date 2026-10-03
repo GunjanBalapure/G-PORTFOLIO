@@ -43,6 +43,22 @@ function Skills() {
     <section ref={revealRef} className="skills reveal-hidden" id="skills">
       <div className="skills-container">
         
+        {/* SKILLS MINION: Looking at cards from right */}
+        <div className="minion-wrapper minion-skills-wrap minion-hide-tablet">
+          <img 
+            src="/assets/minions/minion-skills.png" 
+            alt="Minion character" 
+            className="minion minion-skills minion-float"
+            onError={(e) => {
+              e.target.style.display = 'none';
+              e.target.nextSibling.style.display = 'flex';
+            }}
+          />
+          <div className="minion-float minion-placeholder" style={{ display: 'none', width: '120px', height: '140px' }}>
+            MINION IMAGE &rarr; ADD PNG
+          </div>
+        </div>
+
         <div className="skills-header">
           <div className="handwritten skills-label">Skills & Technologies</div>
           <h2 className="skills-heading typewriter-text">
@@ -58,7 +74,7 @@ function Skills() {
             <div 
               key={category.id} 
               className="skill-paper-card"
-              style={{ transform: `rotate(${category.rotation})` }}
+              style={{ '--final-rot': `rotate(${category.rotation})` }}
             >
               <div className="tape" style={{ background: category.tapeColor, top: '-10px', left: '50%', transform: 'translateX(-50%) rotate(2deg)' }}></div>
               <div className={`pin ${category.pinColor}`} style={{ top: '8px', right: '12px' }}></div>

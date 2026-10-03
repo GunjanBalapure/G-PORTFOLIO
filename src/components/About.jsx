@@ -7,6 +7,22 @@ function About() {
   return (
     <section ref={revealRef} className="about reveal-hidden" id="about">
       <div className="about-scrapbook-sheet">
+        {/* ABOUT MINION: Sitting on left edge */}
+        <div className="minion-wrapper minion-about-wrap minion-hide-tablet">
+          <img 
+            src="/assets/minions/minion-about.png" 
+            alt="Minion character" 
+            className="minion minion-about minion-float"
+            onError={(e) => {
+              e.target.style.display = 'none';
+              e.target.nextSibling.style.display = 'flex';
+            }}
+          />
+          <div className="minion-float minion-placeholder" style={{ display: 'none', width: '120px', height: '140px' }}>
+            MINION IMAGE &rarr; ADD PNG
+          </div>
+        </div>
+
         <div className="pin pin-red about-pin-1"></div>
         <div className="pin pin-blue about-pin-2"></div>
         

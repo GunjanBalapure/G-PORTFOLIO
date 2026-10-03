@@ -7,6 +7,20 @@ function Creative() {
   return (
     <section ref={revealRef} className="creative reveal-hidden" id="creative">
       <div className="creative-scrapbook-sheet">
+        
+        {/* CREATIVE MINION: Peeking behind the creative sheet / left side */}
+        <div className="minion-wrapper minion-creative-wrap minion-hide-tablet">
+          <img 
+            src="/assets/minions/minion-creative.png" 
+            alt="Minion character" 
+            className="minion minion-creative minion-float"
+            onError={(e) => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }}
+          />
+          <div className="minion-float minion-placeholder" style={{ display: 'none', width: '120px', height: '140px' }}>
+            MINION IMAGE &rarr; ADD PNG
+          </div>
+        </div>
+
         <div className="pin pin-yellow creative-pin"></div>
         
         <div className="creative-header">

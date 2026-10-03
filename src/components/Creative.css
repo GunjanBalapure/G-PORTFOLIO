@@ -12,7 +12,34 @@
   padding: 60px;
   box-shadow: 2px 6px 20px rgba(0,0,0,0.15);
   border: 1px solid rgba(0,0,0,0.05);
-  transform: rotate(-0.5deg);
+
+  /* Initial hidden state */
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+/* Scroll reveal state */
+.creative.is-visible .creative-scrapbook-sheet {
+  opacity: 1;
+  transform: translateY(0) rotate(-0.5deg);
+}
+
+/* CREATIVE MINION */
+.minion-creative-wrap {
+  bottom: 50px;
+  left: -50px;
+  z-index: 3; /* overlapping the sheet */
+  width: 100px;
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s;
+}
+
+.creative.is-visible .minion-creative-wrap {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .creative-pin {
@@ -66,16 +93,26 @@
   position: relative;
   box-shadow: 2px 3px 10px rgba(0,0,0,0.1);
   border: 1px solid rgba(0,0,0,0.05);
+  
+  /* Initial hidden state */
+  opacity: 0;
+  transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
-.note-poetry { transform: rotate(-1.5deg); }
-.note-music { transform: rotate(1deg); }
-.note-visual { transform: rotate(-0.5deg); }
+/* Entering from slightly left, lower, right */
+.note-poetry { transform: translateX(-40px) rotate(-3deg); }
+.note-music { transform: translateY(40px) rotate(3deg); }
+.note-visual { transform: translateX(40px) rotate(-2deg); }
+
+.creative.is-visible .note-poetry { opacity: 1; transform: translateX(0) rotate(-1.5deg); transition-delay: 0.1s; }
+.creative.is-visible .note-music { opacity: 1; transform: translateY(0) rotate(1deg); transition-delay: 0.25s; }
+.creative.is-visible .note-visual { opacity: 1; transform: translateX(0) rotate(-0.5deg); transition-delay: 0.4s; }
 
 .creative-note:hover {
-  transform: translateY(-3px) rotate(0deg);
-  box-shadow: 3px 5px 15px rgba(0,0,0,0.15);
+  transform: translateY(-5px) rotate(0deg) !important;
+  box-shadow: 3px 8px 20px rgba(0,0,0,0.15);
   z-index: 2;
+  transition-delay: 0s !important;
 }
 
 .creative-icon {

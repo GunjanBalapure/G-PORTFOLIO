@@ -1,3 +1,5 @@
+
+import { useEffect } from 'react';
 import './Hero.css';
 
 function Hero() {
@@ -9,9 +11,65 @@ function Hero() {
     }
   };
 
+  // Highly performant scroll parallax using IntersectionObserver with 100 thresholds.
+  // This smoothly maps the section's visibility ratio to CSS transform scales, 
+  // without needing an expensive continuous 'scroll' event listener!
+  useEffect(() => {
+    const heroSheet = document.querySelector('.hero-scrapbook-sheet');
+    const heroSection = document.getElementById('hero');
+    
+    // Check if user prefers reduced motion for accessibility
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!prefersReducedMotion && heroSheet && heroSection) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            const ratio = entry.intersectionRatio;
+            
+            // As ratio goes from 1 (fully visible) to 0 (leaving screen):
+            // Scale goes from 1 to 0.92
+            const scale = 0.92 + (0.08 * ratio);
+            // Moves upward slowly
+            const moveY = (1 - ratio) * -40;
+            // Fades slightly
+            const opacity = 0.6 + (0.4 * ratio);
+            
+            heroSheet.style.transform = `scale(${scale}) translateY(${moveY}px) rotate(0.5deg)`;
+            heroSheet.style.opacity = opacity;
+            
+            // Subtle shadow softening
+            heroSheet.style.boxShadow = `2px 8px ${25 * ratio}px rgba(0,0,0,${0.15 * ratio})`;
+          });
+        },
+        // Trigger at 100 different points for buttery smoothness
+        { threshold: Array.from({ length: 100 }, (_, i) => i / 100) }
+      );
+      
+      observer.observe(heroSection);
+      return () => observer.disconnect();
+    }
+  }, []);
+
   return (
     <section className="hero" id="hero">
       <div className="hero-scrapbook-sheet">
+        {/* HERO MINION: Peeking from behind top right of paper */}
+        <div className="minion-wrapper minion-hero-wrap minion-keep-mobile">
+          <img 
+            src="/assets/minions/minion-hero.png" 
+            alt="Minion character" 
+            className="minion minion-hero minion-float"
+            onError={(e) => {
+              e.target.style.display = 'none';
+              e.target.nextSibling.style.display = 'flex';
+            }}
+          />
+          <div className="minion-float minion-placeholder" style={{ display: 'none', width: '120px', height: '140px' }}>
+            MINION IMAGE &rarr; ADD PNG
+          </div>
+        </div>
+
         <div className="tape tape-top-left"></div>
         <div className="tape tape-bottom-right"></div>
         

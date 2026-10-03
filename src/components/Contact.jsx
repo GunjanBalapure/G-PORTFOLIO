@@ -22,6 +22,20 @@ function Contact() {
   return (
     <section ref={revealRef} id="contact" className="contact reveal-hidden">
       <div className="contact-paper-sheet">
+        
+        {/* CONTACT MINION: Saying goodbye near left header */}
+        <div className="minion-wrapper minion-contact-wrap minion-keep-mobile">
+          <img 
+            src="/assets/minions/minion-contact.png" 
+            alt="Minion character" 
+            className="minion minion-contact minion-float"
+            onError={(e) => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }}
+          />
+          <div className="minion-float minion-placeholder" style={{ display: 'none', width: '120px', height: '140px' }}>
+            MINION IMAGE &rarr; ADD PNG
+          </div>
+        </div>
+
         <div className="tape" style={{ top: '-10px', left: '20px', transform: 'rotate(-2deg)' }}></div>
         <div className="tape" style={{ top: '-10px', right: '20px', transform: 'rotate(1deg)' }}></div>
         
@@ -39,10 +53,10 @@ function Contact() {
             </p>
 
             <div className="contact-links handwritten">
-              <a href="#" className="contact-link" onClick={(e) => e.preventDefault()}>your-email@example.com</a>
-              <a href="#" className="contact-link" onClick={(e) => e.preventDefault()}>GitHub</a>
-              <a href="#" className="contact-link" onClick={(e) => e.preventDefault()}>LinkedIn</a>
-              <a href="#" className="contact-link" onClick={(e) => e.preventDefault()}>Instagram</a>
+              <a href="mailto:hello@gunjanbalapure.com" className="contact-link" target="_blank" rel="noopener noreferrer">hello@gunjanbalapure.com</a>
+              <a href="https://github.com/GunjanBalapure" className="contact-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="https://www.linkedin.com/in/gunjan-balapure" className="contact-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href="https://instagram.com/gunjanbalapure" className="contact-link" target="_blank" rel="noopener noreferrer">Instagram</a>
             </div>
             
             <span className="handwritten contact-annotation">say hello :)</span>

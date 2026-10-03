@@ -40,11 +40,29 @@
   transform: rotate(-0.5deg); /* Counteract parent rotation */
 }
 
-/* Left Column Text */
+/* Right Column Text */
 .hero-text-content {
   display: flex;
   flex-direction: column;
   animation: heroPaperLift 0.8s ease-out;
+}
+
+/* HERO MINION */
+.minion-hero-wrap {
+  top: -50px;
+  right: 50px;
+  z-index: -1;
+  width: 120px;
+  opacity: 0;
+  transform: scale(0.5) translateY(20px);
+  animation: heroMinionEntrance 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.5s forwards;
+}
+
+@keyframes heroMinionEntrance {
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 .hero-hello {

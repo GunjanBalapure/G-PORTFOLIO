@@ -65,6 +65,24 @@ function Projects() {
     <section ref={revealRef} className="projects reveal-hidden" id="projects">
       <div className="projects-container">
         
+        {/* PROJECTS MINION 1: Peeking behind top left of the board */}
+        <div className="minion-wrapper minion-proj-1-wrap minion-hide-tablet">
+          <img src="/assets/minions/minion-projects-1.png" alt="Minion character" className="minion minion-projects-1 minion-float"
+            onError={(e) => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
+          <div className="minion-float minion-placeholder" style={{ display: 'none', width: '120px', height: '140px' }}>
+            MINION IMAGE &rarr; ADD PNG
+          </div>
+        </div>
+
+        {/* PROJECTS MINION 2: Sitting bottom right of board */}
+        <div className="minion-wrapper minion-proj-2-wrap minion-keep-mobile">
+          <img src="/assets/minions/minion-projects-2.png" alt="Minion character" className="minion minion-projects-2 minion-float"
+            onError={(e) => { e.target.style.display='none'; e.target.nextSibling.style.display='flex'; }} />
+          <div className="minion-float minion-placeholder" style={{ display: 'none', width: '120px', height: '140px' }}>
+            MINION IMAGE &rarr; ADD PNG
+          </div>
+        </div>
+
         <div className="projects-header">
           <div className="handwritten projects-label">Selected Work</div>
           <h2 className="projects-heading typewriter-text">
@@ -80,7 +98,7 @@ function Projects() {
             <article 
               key={project.number} 
               className="project-photo-card"
-              style={{ transform: `rotate(${project.rotation})` }}
+              style={{ '--final-rot': `rotate(${project.rotation})` }}
             >
               <div className="tape" style={{ top: '-12px', left: '50%', transform: 'translateX(-50%) rotate(-1deg)', background: project.tapeColor }}></div>
               

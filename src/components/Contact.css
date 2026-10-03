@@ -12,7 +12,34 @@
   padding: 60px;
   box-shadow: 2px 6px 20px rgba(0,0,0,0.15);
   border: 1px solid rgba(0,0,0,0.05);
-  transform: rotate(0.5deg);
+
+  /* Initial hidden state */
+  opacity: 0;
+  transform: translateY(60px) rotate(2deg);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: opacity, transform;
+}
+
+/* Scroll reveal state */
+.contact.is-visible .contact-paper-sheet {
+  opacity: 1;
+  transform: translateY(0) rotate(0.5deg);
+}
+
+/* CONTACT MINION */
+.minion-contact-wrap {
+  top: -80px;
+  left: 60px;
+  z-index: -1;
+  width: 100px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s;
+}
+
+.contact.is-visible .minion-contact-wrap {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .contact-container {
@@ -79,10 +106,26 @@
   gap: 25px;
 }
 
-.form-group {
+.form-group, .form-submit-wrapper {
   display: flex;
   flex-direction: column;
+  
+  /* Initial hidden state */
+  opacity: 0;
+  transform: translateY(15px);
+  transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
+
+.contact.is-visible .form-group,
+.contact.is-visible .form-submit-wrapper {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contact.is-visible .form-group:nth-child(1) { transition-delay: 0.2s; }
+.contact.is-visible .form-group:nth-child(2) { transition-delay: 0.35s; }
+.contact.is-visible .form-group:nth-child(3) { transition-delay: 0.5s; }
+.contact.is-visible .form-submit-wrapper { transition-delay: 0.65s; }
 
 .form-group label {
   font-size: 1.6rem;

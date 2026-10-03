@@ -98,30 +98,63 @@ section {
 }
 
 /* =========================================================
-   SCROLL REVEAL ANIMATION CLASSES
+   MINION CHARACTER ELEMENTS
    ========================================================= */
-.reveal-hidden {
-  opacity: 0;
-  transform: translateY(15px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+.minion-wrapper {
+  position: absolute;
+  pointer-events: none; /* Don't block clicks on content */
   will-change: opacity, transform;
 }
 
-.reveal-visible {
-  opacity: 1;
-  transform: translateY(0);
+.minion-float {
+  width: 100%;
+  height: auto;
+  animation: minionFloat 4s ease-in-out infinite alternate;
+  transform-origin: center bottom;
 }
 
+/* Fallback style before actual images are added */
+.minion-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+  border: 2px dashed #dc3545;
+  border-radius: 4px;
+  color: #dc3545;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 10px;
+  box-shadow: none;
+}
+
+@keyframes minionFloat {
+  0% { transform: translateY(-4px); }
+  100% { transform: translateY(4px); }
+}
+
+@media (max-width: 1024px) {
+  .minion-hide-tablet {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .minion-wrapper:not(.minion-keep-mobile) {
+    display: none !important;
+  }
+}
+
+/* =========================================================
+   ACCESSIBILITY: REDUCED MOTION
+   ========================================================= */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
-  }
-  .reveal-hidden {
-    opacity: 1;
-    transform: none;
-    transition: none;
   }
 }

@@ -1,46 +1,36 @@
 import { useEffect, useRef } from 'react';
 
-// This is a custom React hook that uses IntersectionObserver
-// to detect when an element scrolls into the viewport.
-export function useScrollReveal(threshold = 0.1) {
-  // We create a reference to attach to our HTML element
-  const elementRef = useRef(null);
+export function useScrollReveal(threshold = 0.15) {
+  const revealRef = useRef(null);
 
   useEffect(() => {
-    // The observer checks if the element is visible on the screen
+    // We use IntersectionObserver to detect when the element enters the viewport.
+    // This is vastly more performant than running a function on every single scroll event.
     const observer = new IntersectionObserver(
       (entries) => {
-        const [entry] = entries;
-        
-        // If the element crosses our threshold, add the 'reveal-visible' class
-        if (entry.isIntersecting) {
-          entry.target.classList.add('reveal-visible');
-          
-          // Once revealed, we stop observing it so the animation only happens once
-          observer.unobserve(entry.target);
-        }
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            // Add the 'is-visible' class to trigger our CSS transitions
+            entry.target.classList.add('is-visible');
+            // We unobserve so the animation only happens once, keeping it clean and performant
+            observer.unobserve(entry.target);
+          }
+        });
       },
       {
-        root: null,
-        rootMargin: '0px 0px -50px 0px', // Triggers slightly before the element fully enters
         threshold: threshold,
+        rootMargin: '0px 0px -50px 0px' // Triggers slightly before it fully enters
       }
     );
 
-    const currentElement = elementRef.current;
-    if (currentElement) {
-      // Start watching the element
-      observer.observe(currentElement);
+    if (revealRef.current) {
+      observer.observe(revealRef.current);
     }
 
-    // Cleanup function when the component unmounts
     return () => {
-      if (currentElement) {
-        observer.unobserve(currentElement);
-      }
+      if (revealRef.current) observer.unobserve(revealRef.current);
     };
   }, [threshold]);
 
-  // We return the ref so the component can attach it to a div or section
-  return elementRef;
+  return revealRef;
 }
