@@ -1,0 +1,464 @@
+/* =========================================================
+   HERO SECTION STYLES
+   ========================================================= */
+
+/* Main hero wrapper occupying ~85-90vh with reduced bottom padding */
+.hero {
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 24px 32px;
+  background-color: #070913; /* Deep navy / near-black */
+  overflow: hidden; /* Prevents glowing circles from causing horizontal scrollbars */
+  color: #ffffff;
+}
+
+/* ---------------------------------------------------------
+   1. Subtle Grid Pattern
+   --------------------------------------------------------- */
+.hero-grid-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(circle at 50% 45%, rgba(0, 0, 0, 0.9) 30%, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle at 50% 45%, rgba(0, 0, 0, 0.9) 30%, transparent 80%);
+  pointer-events: none;
+}
+
+/* ---------------------------------------------------------
+   2. Glowing Ambient Orbs
+   --------------------------------------------------------- */
+.hero-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  opacity: 0.55;
+  will-change: transform, opacity;
+}
+
+.hero-glow-blue {
+  width: 480px;
+  height: 480px;
+  top: 5%;
+  left: -8%;
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.35), rgba(37, 99, 235, 0.05) 70%, transparent);
+  animation: glowDrift1 14s ease-in-out infinite alternate;
+}
+
+.hero-glow-purple {
+  width: 520px;
+  height: 520px;
+  bottom: 5%;
+  right: 0%;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.32), rgba(126, 34, 206, 0.05) 70%, transparent);
+  animation: glowDrift2 16s ease-in-out infinite alternate;
+}
+
+/* Floating particles in background */
+.hero-particle {
+  position: absolute;
+  border-radius: 50%;
+  background: #ffffff;
+  pointer-events: none;
+  opacity: 0.25;
+}
+
+.particle-1 {
+  width: 4px;
+  height: 4px;
+  top: 20%;
+  left: 15%;
+  background: #38bdf8;
+  box-shadow: 0 0 10px #38bdf8;
+  animation: floatParticle 8s ease-in-out infinite;
+}
+
+.particle-2 {
+  width: 5px;
+  height: 5px;
+  top: 70%;
+  left: 38%;
+  background: #c084fc;
+  box-shadow: 0 0 12px #c084fc;
+  animation: floatParticle 11s ease-in-out infinite reverse;
+}
+
+.particle-3 {
+  width: 3px;
+  height: 3px;
+  top: 25%;
+  right: 20%;
+  background: #818cf8;
+  box-shadow: 0 0 8px #818cf8;
+  animation: floatParticle 9s ease-in-out infinite 2s;
+}
+
+/* ---------------------------------------------------------
+   3. Main Content Container
+   --------------------------------------------------------- */
+.hero-container {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1.18fr 0.82fr;
+  align-items: center;
+  gap: 40px;
+}
+
+.hero-text-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* ---------------------------------------------------------
+   4. Small Top Badge / Label
+   --------------------------------------------------------- */
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 16px;
+  border-radius: 9999px;
+  background: rgba(30, 41, 59, 0.7);
+  border: 1px solid rgba(99, 102, 241, 0.35);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: #cbd5e1;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.15);
+}
+
+.badge-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #38bdf8;
+  box-shadow: 0 0 8px #38bdf8;
+  animation: pulseDot 2s ease-in-out infinite;
+}
+
+/* ---------------------------------------------------------
+   5. Main Heading & Typography (significantly larger & bold)
+   --------------------------------------------------------- */
+.hero-title {
+  font-size: clamp(3.2rem, 5.5vw, 5.2rem);
+  font-weight: 900;
+  line-height: 1.06;
+  letter-spacing: -0.035em;
+  color: #ffffff;
+  margin-bottom: 24px;
+}
+
+.hero-title-line {
+  display: block;
+}
+
+/* Highlights for "think" and "feel" */
+.highlight-think {
+  background: linear-gradient(135deg, #38bdf8 0%, #60a5fa 50%, #818cf8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 35px rgba(56, 189, 248, 0.35);
+}
+
+.highlight-feel {
+  background: linear-gradient(135deg, #c084fc 0%, #e879f9 50%, #f472b6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 35px rgba(192, 132, 252, 0.35);
+}
+
+/* Supporting description - larger and more legible */
+.hero-description {
+  font-size: clamp(1.1rem, 1.35vw, 1.28rem);
+  line-height: 1.75;
+  color: #cbd5e1;
+  max-width: 600px;
+  margin-bottom: 32px;
+}
+
+/* ---------------------------------------------------------
+   6. Buttons & Call to Actions
+   --------------------------------------------------------- */
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  border: none;
+}
+
+.hero-btn-primary {
+  background: linear-gradient(135deg, #3b82f6 0%, #6366f1 50%, #8b5cf6 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(99, 102, 241, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+.hero-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(99, 102, 241, 0.6), inset 0 1px 1px rgba(255, 255, 255, 0.4);
+  filter: brightness(1.08);
+}
+
+.hero-btn-primary:active {
+  transform: translateY(0);
+}
+
+.hero-btn-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  color: #f1f5f9;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(10px);
+}
+
+.hero-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(148, 163, 184, 0.5);
+  transform: translateY(-2px);
+  color: #ffffff;
+}
+
+.hero-btn-secondary:active {
+  transform: translateY(0);
+}
+
+.btn-arrow {
+  transition: transform 0.2s ease;
+}
+
+.hero-btn-primary:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* ---------------------------------------------------------
+   7. Abstract AI & Tech Visual (Right Column)
+   --------------------------------------------------------- */
+.hero-visual-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+.hero-svg-art {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 0 25px rgba(99, 102, 241, 0.25));
+}
+
+.core-pulse {
+  animation: coreBreathe 4s ease-in-out infinite;
+  transform-origin: center;
+}
+
+.orbit-ring-outer {
+  animation: rotateRing 32s linear infinite;
+  transform-origin: center;
+}
+
+.orbit-ring-inner {
+  animation: rotateRingRev 24s linear infinite;
+  transform-origin: center;
+}
+
+.creative-wave {
+  animation: waveFloat 6s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+
+.node-glow-1 {
+  animation: nodeFlicker 3s ease-in-out infinite;
+}
+
+.node-glow-2 {
+  animation: nodeFlicker 3s ease-in-out infinite 1.5s;
+}
+
+/* ---------------------------------------------------------
+   8. CSS KEYFRAME ANIMATIONS
+   --------------------------------------------------------- */
+@keyframes glowDrift1 {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.45;
+  }
+  100% {
+    transform: translate(30px, 40px) scale(1.1);
+    opacity: 0.65;
+  }
+}
+
+@keyframes glowDrift2 {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.45;
+  }
+  100% {
+    transform: translate(-40px, -30px) scale(1.08);
+    opacity: 0.65;
+  }
+}
+
+@keyframes floatParticle {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  50% {
+    transform: translateY(-24px) translateX(12px);
+  }
+}
+
+@keyframes pulseDot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+}
+
+@keyframes rotateRing {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateRingRev {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes coreBreathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 1;
+  }
+}
+
+@keyframes nodeFlicker {
+  0%, 100% {
+    opacity: 0.4;
+    r: 4;
+  }
+  50% {
+    opacity: 1;
+    r: 6;
+  }
+}
+
+@keyframes waveFloat {
+  0% {
+    transform: translateY(-4px) scaleY(0.96);
+  }
+  100% {
+    transform: translateY(4px) scaleY(1.04);
+  }
+}
+
+/* ---------------------------------------------------------
+   9. RESPONSIVE DESIGN (Tablets & Mobile)
+   --------------------------------------------------------- */
+@media (max-width: 968px) {
+  .hero {
+    min-height: auto;
+    padding: 50px 20px 32px;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 36px;
+  }
+
+  .hero-text-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: clamp(2.4rem, 6.5vw, 3.8rem);
+    line-height: 1.1;
+  }
+
+  .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-visual-wrapper {
+    max-width: 300px;
+    order: -1;
+  }
+}
+
+@media (max-width: 540px) {
+  .hero-title {
+    font-size: clamp(1.95rem, 8.2vw, 2.6rem);
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .hero-btn {
+    width: 100%;
+  }
+
+  .hero-visual-wrapper {
+    max-width: 240px;
+  }
+}

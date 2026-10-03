@@ -1,0 +1,266 @@
+/* =========================================================
+   SKILLS & TECHNOLOGIES SECTION STYLES
+   ========================================================= */
+
+.skills {
+  position: relative;
+  padding: 96px 24px 80px;
+  background-color: #070913; /* Deep navy background */
+  color: #ffffff;
+  overflow: hidden;
+}
+
+/* Background subtle ambient glow */
+.skills-ambient-glow {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.12), rgba(56, 189, 248, 0.05) 50%, transparent 75%);
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+/* Main constrained container */
+.skills-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* ---------------------------------------------------------
+   1. Section Header
+   --------------------------------------------------------- */
+.skills-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Top Cyan Badge */
+.skills-header .section-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: #e2e8f0;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  backdrop-filter: blur(8px);
+}
+
+.badge-dot-cyan {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #38bdf8;
+  box-shadow: 0 0 8px #38bdf8;
+}
+
+.skills-heading {
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  color: #ffffff;
+  margin-bottom: 18px;
+}
+
+.skills-heading-accent {
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.skills-description {
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: #94a3b8;
+}
+
+/* ---------------------------------------------------------
+   2. Responsive CSS Grid for Cards
+   Desktop: 4 columns
+   Tablet: 2 columns
+   Mobile: 1 column
+   --------------------------------------------------------- */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* ---------------------------------------------------------
+   3. Individual Category Cards
+   Glassmorphic styling with subtle animations
+   --------------------------------------------------------- */
+.skill-card {
+  position: relative;
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 28px 24px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+  animation: cardFadeIn 0.6s ease-out backwards;
+}
+
+/* Stagger entrance animations smoothly */
+.skill-card:nth-child(1) { animation-delay: 0.08s; }
+.skill-card:nth-child(2) { animation-delay: 0.16s; }
+.skill-card:nth-child(3) { animation-delay: 0.24s; }
+.skill-card:nth-child(4) { animation-delay: 0.32s; }
+
+/* Category Top Info */
+.skill-card-top {
+  margin-bottom: 20px;
+}
+
+.category-tag {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #64748b;
+  margin-bottom: 6px;
+}
+
+.category-title {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #f8fafc;
+  letter-spacing: -0.015em;
+}
+
+/* ---------------------------------------------------------
+   4. Skill Chips / Tags
+   --------------------------------------------------------- */
+.skill-tags-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  align-items: center;
+}
+
+.skill-chip {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #cbd5e1;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+/* Chip Hover Glow */
+.skill-chip:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(129, 140, 248, 0.45);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.22);
+}
+
+/* ---------------------------------------------------------
+   5. Card Hover Effects with Distinct Color Accents
+   --------------------------------------------------------- */
+.skill-card:hover {
+  transform: translateY(-6px);
+}
+
+/* 1. Languages (Blue accent) */
+.card-blue:hover {
+  border-color: rgba(56, 189, 248, 0.45);
+  box-shadow: 0 14px 32px rgba(56, 189, 248, 0.12),
+              0 0 1px 1px rgba(56, 189, 248, 0.25);
+}
+
+/* 2. AI & ML (Purple accent) */
+.card-purple:hover {
+  border-color: rgba(192, 132, 252, 0.45);
+  box-shadow: 0 14px 32px rgba(192, 132, 252, 0.12),
+              0 0 1px 1px rgba(192, 132, 252, 0.25);
+}
+
+/* 3. Development (Cyan/Indigo accent) */
+.card-cyan:hover {
+  border-color: rgba(99, 102, 241, 0.45);
+  box-shadow: 0 14px 32px rgba(99, 102, 241, 0.12),
+              0 0 1px 1px rgba(99, 102, 241, 0.25);
+}
+
+/* 4. Tools & Workflow (Violet accent) */
+.card-violet:hover {
+  border-color: rgba(168, 85, 247, 0.45);
+  box-shadow: 0 14px 32px rgba(168, 85, 247, 0.12),
+              0 0 1px 1px rgba(168, 85, 247, 0.25);
+}
+
+/* ---------------------------------------------------------
+   6. Keyframe Animations
+   --------------------------------------------------------- */
+@keyframes cardFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------------------------------------------------------
+   7. Responsive Breakpoints
+   --------------------------------------------------------- */
+
+/* Tablet: 2 cards per row */
+@media (max-width: 1024px) {
+  .skills {
+    padding: 70px 20px 60px;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+/* Mobile: 1 card per row */
+@media (max-width: 640px) {
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .skills-header {
+    margin-bottom: 40px;
+  }
+
+  .skill-card {
+    padding: 22px 20px;
+  }
+}

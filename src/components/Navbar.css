@@ -1,0 +1,215 @@
+/* =========================================================
+   NAVBAR STYLES
+   ========================================================= */
+
+/* Sticky header pinned to the top of the viewport */
+.navbar-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Stays above all hero elements and graphics */
+  background: rgba(7, 9, 19, 0.82); /* Dark navy translucent background */
+  backdrop-filter: blur(14px); /* Frosty glass blur effect */
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* Constrained inner container */
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ---------------------------------------------------------
+   1. Brand Logo: "GB."
+   --------------------------------------------------------- */
+.navbar-logo {
+  display: inline-flex;
+  align-items: baseline;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  transition: transform 0.2s ease, text-shadow 0.2s ease;
+}
+
+.navbar-logo:hover {
+  transform: translateY(-1px);
+  text-shadow: 0 0 16px rgba(56, 189, 248, 0.5);
+}
+
+.logo-dot {
+  color: #38bdf8; /* Cyan dot */
+  margin-left: 1px;
+}
+
+/* ---------------------------------------------------------
+   2. Desktop Nav Links
+   --------------------------------------------------------- */
+.nav-links-desktop {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links-desktop a {
+  position: relative;
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #94a3b8; /* Muted light gray */
+  text-decoration: none;
+  transition: color 0.22s ease, text-shadow 0.22s ease;
+  padding: 6px 2px;
+}
+
+/* Subtle blue/purple glow on hover */
+.nav-links-desktop a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 12px rgba(129, 140, 248, 0.7);
+}
+
+/* Special pill outline for Contact */
+.nav-links-desktop a.nav-contact-btn {
+  padding: 8px 18px;
+  border-radius: 9999px;
+  border: 1px solid rgba(99, 102, 241, 0.4);
+  background: rgba(99, 102, 241, 0.08);
+  color: #e2e8f0;
+  transition: all 0.25s ease;
+}
+
+.nav-links-desktop a.nav-contact-btn:hover {
+  background: rgba(99, 102, 241, 0.22);
+  border-color: rgba(99, 102, 241, 0.7);
+  box-shadow: 0 0 18px rgba(99, 102, 241, 0.35);
+  color: #ffffff;
+}
+
+/* ---------------------------------------------------------
+   3. Mobile Hamburger Button (Hidden on Desktop)
+   --------------------------------------------------------- */
+.navbar-hamburger {
+  display: none; /* Hidden on desktop */
+  flex-direction: column;
+  justify-content: space-around;
+  width: 32px;
+  height: 28px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 2px;
+  z-index: 1001;
+}
+
+.hamburger-bar {
+  width: 100%;
+  height: 2px;
+  background-color: #f1f5f9;
+  border-radius: 4px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: center;
+}
+
+/* Morphing hamburger lines into an "X" when open */
+.bar-top-open {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.bar-mid-open {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.bar-bot-open {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ---------------------------------------------------------
+   4. Mobile Dropdown Menu
+   --------------------------------------------------------- */
+.nav-menu-mobile {
+  display: none; /* Only activated via media query on mobile */
+}
+
+/* ---------------------------------------------------------
+   5. Responsive Breakpoint (Tablet & Mobile <= 768px)
+   --------------------------------------------------------- */
+@media (max-width: 768px) {
+  /* Hide desktop horizontal links */
+  .nav-links-desktop {
+    display: none;
+  }
+
+  /* Show mobile hamburger toggle */
+  .navbar-hamburger {
+    display: flex;
+  }
+
+  /* Show mobile menu when rendered by React */
+  .nav-menu-mobile {
+    display: block;
+    background: rgba(7, 9, 19, 0.96);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    animation: slideDown 0.25s ease-out;
+  }
+
+  .nav-links-mobile {
+    list-style: none;
+    margin: 0;
+    padding: 16px 24px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .nav-links-mobile a {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #cbd5e1;
+    text-decoration: none;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: color 0.2s ease, padding-left 0.2s ease;
+  }
+
+  .nav-links-mobile a:hover {
+    color: #38bdf8;
+    padding-left: 6px;
+    text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+  }
+
+  .nav-links-mobile a.nav-mobile-contact-link {
+    border-bottom: none;
+    margin-top: 8px;
+    padding: 12px 16px;
+    text-align: center;
+    border-radius: 8px;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2));
+    border: 1px solid rgba(99, 102, 241, 0.4);
+    color: #ffffff;
+  }
+}
+
+/* Keyframe for smooth dropdown entrance on mobile */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
