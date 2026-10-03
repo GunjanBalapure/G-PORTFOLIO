@@ -53,10 +53,10 @@ function Contact() {
             </p>
 
             <div className="contact-links handwritten">
-              <a href="mailto:hello@gunjanbalapure.com" className="contact-link" target="_blank" rel="noopener noreferrer">hello@gunjanbalapure.com</a>
+              <a href="mailto:gunjanbalapure04@gmail.com" className="contact-link" target="_blank" rel="noopener noreferrer">gunjanbalapure04@gmail.com</a>
               <a href="https://github.com/GunjanBalapure" className="contact-link" target="_blank" rel="noopener noreferrer">GitHub</a>
               <a href="https://www.linkedin.com/in/gunjan-balapure" className="contact-link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-              <a href="https://instagram.com/gunjanbalapure" className="contact-link" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a href="https://www.instagram.com/gunjanbalapure?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" className="contact-link" target="_blank" rel="noopener noreferrer">Instagram</a>
             </div>
             
             <span className="handwritten contact-annotation">say hello :)</span>
